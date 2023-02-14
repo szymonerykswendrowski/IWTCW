@@ -2,31 +2,51 @@
 <!DOCTYPE html>
 <html>
 
-  <head> 
-    <title>IWT Coursework</title>
-  </head>
+    <style>
+        .myForm {
+        display: grid;
+        width: 20%;
+        grid-template-columns: [labels] auto [controls] auto;
+        grid-auto-flow: row;
+        row-gap: .8em;
+        column-gap: .8em;
+        padding: 1.2em;
+        }
+        .myForm > label  {
+        grid-column: labels;
+        grid-row: auto;
+        }
+        .myForm > input {
+        grid-column: controls;
+        grid-row: auto;
+        }
+    </style>
 
-  <body>
-    <h1>IWT Coursework</h1>
+    <head> 
+        <title>IWT Coursework</title>
+    </head>
 
-    <form>
-      <label for="year">Enter year:</label>
-      <input type="number" id="year" size="15">
-      <label for="winner">Enter winner:</label>
-      <input type="text" id="winner" size="15">
-      <label for="runner-up">Enter runner-up:</label>
-      <input type="text" id="runner-up" size="15">
-      <label for="file">Select file</label>
-      <select name="file" id="file"></select>
-      <label for="year-op">Year comparison operator</label>
-      <select name="year-op" id="year-op"></select>
-      <label for="tournament">Tournament</label>
-      <select name="tournament" id="tournament"></select>
-      <input type="button" value="Send query" id="send-query">
-      <input type="button" value="Clear fields" id="clear-input">
-      <input type="button" value="Clear table" id="clear-output">
-    </form>
+    <body>
+        <h1>IWT Coursework</h1>
 
-  </body>
+        <form class="myForm">
+            <label for="year">Enter year:</label>
+            <input type="number" id="year" size="15">
+            <label for="winner">Enter winner:</label>
+            <input type="text" id="winner" size="15">
+            <label for="runner-up">Enter runner-up:</label>
+            <input type="text" id="runner-up" size="15">
+            <label for="file">Select file</label>
+            <select name="file" id="file"></select>
+            <label for="year-op">Year comparison operator</label>
+            <select name="year-op" id="year-op"></select>
+            <label for="tournament">Tournament</label>
+            <select name="tournament" id="tournament"></select>
+            <input type="button" value="Send query" id="send-query">
+            <input type="button" value="Clear fields" id="clear-input">
+            <input type="button" value="Clear table" id="clear-output">
+        </form>
+
+    </body>
 
 </html>
