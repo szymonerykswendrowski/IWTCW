@@ -29,6 +29,9 @@
     <body>
         <h1>IWT Coursework</h1>
 
+        <script type="text/javascript" src="jquery-3.6.3.min.js"></script>
+        <script type="text/javascript" src="iwt-cw.js"></script>
+
         <form class="myForm">
             <label for="year">Enter year:</label>
             <input type="number" id="year" size="15">
@@ -56,13 +59,12 @@
                 <option value="Wimbledon">Wimbledon</option>
                 <option value="U.S. Open">U.S.</option>
             </select>
-            <input type="button" value="Send query" id="send-query">
+            <input type="button" value="Send query" id="send-query" onclick="sendQuery()">
             <input type="button" value="Clear fields" id="clear-input">
             <input type="button" value="Clear table" id="clear-output">
         </form>
 
         <div id="output"></div>
-
     </body>
 
 </html>
