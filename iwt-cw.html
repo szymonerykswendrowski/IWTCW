@@ -43,7 +43,11 @@
                 <option value="womens-grand-slam-winners.json">Women's Winners</option>
             </select>
             <label for="year-op">Year comparison operator</label>
-            <select name="year-op" id="year-op"></select>
+            <select name="year-op" id="year-op">
+                <option value="=">Equals</option>
+                <option value="&gt;">Greater than</option>
+                <option value="&lt;">Less than</option>
+            </select>
             <label for="tournament">Tournament</label>
             <select name="tournament" id="tournament"></select>
             <input type="button" value="Send query" id="send-query">
