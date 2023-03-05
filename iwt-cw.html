@@ -22,6 +22,24 @@
         }
     </style>
 
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+        
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+        background-color: #dddddd;
+        }
+    </style>
+
     <head> 
         <title>IWT Coursework</title>
     </head>
@@ -64,7 +82,16 @@
             <input type="button" value="Clear table" id="clear-output">
         </form>
 
-        <div id="output"></div>
+        <div id="output">
+            <table id="output-table">
+                <tr>
+                    <th>Year</th>
+                    <th>Tournament</th>
+                    <th>Winner</th>
+                    <th>Runner-up</th>
+                </tr>
+            </table>
+        </div>
     </body>
 
 </html>
