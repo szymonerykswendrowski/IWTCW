@@ -70,7 +70,7 @@
                 <option value="&lt;">Less than</option>
             </select>
             <label for="tournament">Tournament</label>
-            <select name="tournament" id="tournament">#
+            <select name="tournament" id="tournament">
                 <option value="Any">Any</option>
                 <option value="Australian Open">Australian</option>
                 <option value="French Open">French</option>
@@ -78,8 +78,8 @@
                 <option value="U.S. Open">U.S.</option>
             </select>
             <input type="button" value="Send query" id="send-query" onclick="sendQuery()">
-            <input type="button" value="Clear fields" id="clear-input">
-            <input type="button" value="Clear table" id="clear-output">
+            <input type="button" value="Clear fields" id="clear-input" onclick="clearFields()">
+            <input type="button" value="Clear table" id="clear-output" onclick="clearTable()">
         </form>
 
 

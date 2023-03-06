@@ -46,3 +46,17 @@ function sendQuery() {
         );
     });
 }
+
+function clearFields() {
+    document.getElementById("year").value = "";
+    document.getElementById("winner").value = "";
+    document.getElementById("runner-up").value = "";
+    document.getElementById("file").value = "default";
+    document.getElementById("year-op").value = "=";
+    document.getElementById("tournament").value = "Any";
+
+}
+
+function clearTable() {
+    $("#output-table").html("");
+}
