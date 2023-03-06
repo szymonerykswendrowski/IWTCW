@@ -1,5 +1,11 @@
+// Function that sends the query to the server-side to be
+// processed and then outputs the results to the output
+// table.
 function sendQuery() {
     $(document).ready(function() {
+        // Clear the output table at the start
+        // so that you don't get multiple column
+        // headings stacked on top of each other.
         clearTable();
         // Query string parameters:
         var parameters = {
@@ -48,6 +54,8 @@ function sendQuery() {
     });
 }
 
+// Function that clears the input form by setting the
+// appropriate fields to "" or to their default values.
 function clearFields() {
     document.getElementById("year").value = "";
     document.getElementById("winner").value = "";
@@ -58,6 +66,7 @@ function clearFields() {
 
 }
 
+// Fucntion that clears the output table.
 function clearTable() {
     $("#output-table").html("");
 }
