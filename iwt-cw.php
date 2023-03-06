@@ -4,7 +4,6 @@ header('Content-type: application/json');
 
 // Helper function for yearOp
 function operand ($var1, $op, $var2) {
-
     switch ($op) {
         case "=":  return $var1 === $var2;
         case ">":  return $var1 >  $var2;
@@ -64,8 +63,8 @@ else {
     if ($tournament === 'Any') {
         foreach($decoded_json as $item) {
                 if ((operand($item['year'], $yearOp, $yearint) || $year === "") 
-                    && ($item['winner'] === $winner || $winner === "")
-                    && ($item['runner-up'] === $runnerUp || $runnerUp === "")) {
+                    && (stripos($item['winner'], $winner) === 0 || $winner === "")
+                    && (stripos($item['runner-up'],$runnerUp) === 0 || $runnerUp === "")) {
                         $result[] = [
                             "year"  => $item['year'],
                             "tournament" => $item['tournament'],
@@ -74,15 +73,14 @@ else {
                         ];
                 }
         } echo json_encode($result);  
-        // var_dump($result); 
     }
 
     // Case for a specific tournament
     else {
         foreach($decoded_json as $item) {
         if ((operand($item['year'], $yearOp, $yearint) || $year === "") 
-            && ($item['winner'] === $winner || $winner === "")
-            && ($item['runner-up'] === $runnerUp || $runnerUp === "")
+            && (stripos($item['winner'], $winner) === 0 || $winner === "")
+            && (stripos($item['runner-up'], $runnerUp) === 0 || $runnerUp === "")
             && ($item['tournament'] === $tournament)) {
                 $result[] = [
                     "year"  => $item['year'],
@@ -94,7 +92,5 @@ else {
         } echo json_encode($result);  
     }       
 }
-// Put the required data into the result array with the
-// appropriate keys
 
 ?>
