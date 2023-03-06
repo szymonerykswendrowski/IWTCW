@@ -53,8 +53,8 @@ else {
     $runnerUp = $_GET['runnerUp'];
 
     // Year out of range error
-    if (($file === 'mens-grand-slam-winners.json' && ($yearint < 1877 || $yearint > 2022))
-        || ($file === 'womens-grand-slam-winners.json' && ($yearint < 1884 || $yearint > 2022))) {
+    if (($file === 'mens-grand-slam-winners.json' && ($yearint < 1877 || $yearint > 2022) && $year != '')
+        || ($file === 'womens-grand-slam-winners.json' && ($yearint < 1884 || $yearint > 2022) && $year != '')) {
         $error = ["error" => "error, year out of range"];
         echo json_encode($error);
         exit();
