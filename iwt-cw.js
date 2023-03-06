@@ -1,5 +1,6 @@
 function sendQuery() {
     $(document).ready(function() {
+        clearTable();
         // Query string parameters:
         var parameters = {
             file: $('#file').val(),
