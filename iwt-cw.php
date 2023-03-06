@@ -4,24 +4,29 @@ header('Content-type: application/json');
 
 $result = array();
 
-// Tests if file is empty, if not gets the file name and decodes
-// the corresponding json file.
-if (isset($_GET['file']) && $_GET['file'] != '') {
+if ($_GET['file'] === 'default') {
+    $error = ["error" => "error, no file selected"];
+    echo json_encode($error);
+    exit();
+}
+
+// Case when only file is selected
+if (isset($_GET['file']) && $_GET['file'] != ''
+    && empty($_GET['year']) && $_GET['tournament'] === 'Any'
+    && empty($_GET['winner']) && empty($_GET['runner-up'])) {
     $file = $_GET['file'];
     $json = file_get_contents($file);
     $decoded_json = json_decode($json, true);
-}
 
-// Put the required data into the result array with the
-// appropriate keys
-foreach($decoded_json as $item) {
-    $result[] = [
-        "year"  => $item['year'],
-        "tournament" => $item['tournament'],
-        "winner" => $item['winner'],
-        "runnerUp" => $item['runner-up']
-    ];
-    }
-    echo json_encode($result);
+    foreach($decoded_json as $item) {
+        $result[] = [
+            "year"  => $item['year'],
+            "tournament" => $item['tournament'],
+            "winner" => $item['winner'],
+            "runnerUp" => $item['runner-up']
+        ];
+        }
+        echo json_encode($result);
+}
 
 ?>

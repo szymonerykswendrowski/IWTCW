@@ -12,25 +12,36 @@ function sendQuery() {
         $.getJSON(
             'iwt-cw.php', parameters,
             function(data) {
-                // Column headings
-                $('#output-table').append(
-                    `<tr>
-                        <th>Year</th>
-                        <th>Tournament</th>
-                        <th>Winner</th>
-                        <th>Runner-up</th>
-                    </tr>`);
-                // Table rows
-                $.each(data, function(index, row) {
-                    const rowContent 
-                    = `<tr>
-                            <td>${row.year}</td>
-                            <td>${row.tournament}</td>
-                            <td>${row.winner}</td>
-                            <td>${row.runnerUp}</td>
-                       </tr>`;
-                    $('#output-table').append(rowContent);
-                });
+                console.log(data);
+                // Error checks
+                if(data.hasOwnProperty("error")) {
+                    $.each(data, function(index, item) {
+                        $('<div>')
+                        .text(item)
+                        .appendTo('#output');
+                    });
+                }
+                else {
+                    // Column headings
+                    $('#output-table').append(
+                        `<tr>
+                            <th>Year</th>
+                            <th>Tournament</th>
+                            <th>Winner</th>
+                            <th>Runner-up</th>
+                        </tr>`);
+                    // Table rows
+                    $.each(data, function(index, row) {
+                        const rowContent 
+                        = `<tr>
+                                <td>${row.year}</td>
+                                <td>${row.tournament}</td>
+                                <td>${row.winner}</td>
+                                <td>${row.runnerUp}</td>
+                        </tr>`;
+                        $('#output-table').append(rowContent);
+                    });
+                };
             }
         );
     });
