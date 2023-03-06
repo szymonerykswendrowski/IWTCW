@@ -9,10 +9,10 @@ function sendQuery() {
             winner: $('#winner').val(),
             runnerUp: $('#runner-up').val()
         };
+        console.log(parameters);
         $.getJSON(
             'iwt-cw.php', parameters,
             function(data) {
-                console.log(data);
                 // Error checks
                 if(data.hasOwnProperty("error")) {
                     $.each(data, function(index, item) {
