@@ -12,23 +12,25 @@ function sendQuery() {
         $.getJSON(
             'iwt-cw.php', parameters,
             function(data) {
-                // Rows of the table t
-                // $.each(data, function(i, j) {
-                //     var row = '<tr>';
-                //     $.each(data, function(m, n) {
-                //         // $('<tr/>')
-                //         // .text(item)
-                //         // .appendTo('#output-table')
-                //         row += '<td>' + n + '</td>';
-                //     });
-                //     row += '</tr>'
-                //     $('#output-table').append(row);
-                // });z
-                let output = "<tr>";
-                $.each(data, function(index, entry) {
-                   output = output + "<th>" + entry  + "</th>";
+                // Column headings
+                $('#output-table').append(
+                    `<tr>
+                        <th>Year</th>
+                        <th>Tournament</th>
+                        <th>Winner</th>
+                        <th>Runner-up</th>
+                    </tr>`);
+                // Table rows
+                $.each(data, function(index, row) {
+                    const rowContent 
+                    = `<tr>
+                            <td>${row.year}</td>
+                            <td>${row.tournament}</td>
+                            <td>${row.winner}</td>
+                            <td>${row.runnerUp}</td>
+                       </tr>`;
+                    $('#output-table').append(rowContent);
                 });
-                document.getElementById("output-table").innerHTML = output + "</tr>";
             }
         );
     });
