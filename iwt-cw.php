@@ -60,12 +60,12 @@ else {
         exit();
     }
 
-    // if ($tournament === 'Any') {
+    // Case for all tournaments
+    if ($tournament === 'Any') {
         foreach($decoded_json as $item) {
-            // foreach($array as $item) {
-                if ((operand($item['year'], $yearOp, $yearint) || $year == "") 
-                    && ($item['winner'] == $winner || $winner == "")
-                    && ($item['runner-up'] == $runnerUp || $runnerUp == "")) {
+                if ((operand($item['year'], $yearOp, $yearint) || $year === "") 
+                    && ($item['winner'] === $winner || $winner === "")
+                    && ($item['runner-up'] === $runnerUp || $runnerUp === "")) {
                         $result[] = [
                             "year"  => $item['year'],
                             "tournament" => $item['tournament'],
@@ -73,11 +73,26 @@ else {
                             "runnerUp" => $item['runner-up']
                         ];
                 }
-            // }
         } echo json_encode($result);  
         // var_dump($result); 
-    // }
-           
+    }
+
+    // Case for a specific tournament
+    else {
+        foreach($decoded_json as $item) {
+        if ((operand($item['year'], $yearOp, $yearint) || $year === "") 
+            && ($item['winner'] === $winner || $winner === "")
+            && ($item['runner-up'] === $runnerUp || $runnerUp === "")
+            && ($item['tournament'] === $tournament)) {
+                $result[] = [
+                    "year"  => $item['year'],
+                    "tournament" => $item['tournament'],
+                    "winner" => $item['winner'],
+                    "runnerUp" => $item['runner-up']
+                ];
+            }
+        } echo json_encode($result);  
+    }       
 }
 // Put the required data into the result array with the
 // appropriate keys
