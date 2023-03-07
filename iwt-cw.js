@@ -18,6 +18,10 @@ function sendQuery() {
         };
         console.log(parameters);
         $.getJSON(
+            // Tested through xammp so note:
+            // http://localhost/.../iwt-cw.html
+            // This will not work:
+            // file:///C:/xampp/.../iwt-cw.html
             'iwt-cw.php', parameters,
             function(data) {
                 // Error checks
